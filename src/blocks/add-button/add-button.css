@@ -1,0 +1,32 @@
+.add-button {
+    max-width: 100%;
+    height: 50px;
+    align-self: center;
+    background-color: #000;
+    border: 2px solid #FFF;
+    border-radius: 2px;
+    box-sizing: border-box;
+    background-image: url(../../Images/Add.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 22px;
+    cursor: pointer;
+    transition: opacity 1s ease;
+}
+
+.add-button:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 940px) {
+    .add-button {
+        grid-column: 1/3;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .add-button {
+        grid-column: 1;
+        background-size: 16px;
+        }
+}

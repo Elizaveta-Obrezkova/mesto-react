@@ -1,0 +1,16 @@
+.button-like {
+    width: 22px;
+    height: 19px;
+    background-image: url(../../Images/like.svg);
+    background-position: center;
+    background-size: cover;
+    border: none;
+    background-color: #FFF;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 1s ease;
+}
+
+.button-like:hover {
+    opacity: 0.5;
+}

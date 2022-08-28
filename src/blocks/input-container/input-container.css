@@ -1,0 +1,11 @@
+.input-container {
+    width: 358px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+@media screen and (max-width: 590px) {
+    .input-container {
+        width: 238px;
+    }
+}

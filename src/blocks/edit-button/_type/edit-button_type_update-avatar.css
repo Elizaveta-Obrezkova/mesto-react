@@ -1,0 +1,16 @@
+.edit-button_type_update-avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(0, 0, 0, .8);
+    background-size: 26px 26px;
+    border: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.edit-button_type_update-avatar:hover {
+    opacity: 1;
+}
