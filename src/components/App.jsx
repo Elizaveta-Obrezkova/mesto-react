@@ -11,13 +11,15 @@ function App() {
     const [isEditProfilePopupOpen, openEditPopup] = React.useState(false);
     const [isAddPlacePopupOpen, openAddPopup] = React.useState(false);
     const [isEditAvatarPopupOpen, openAvatarPopup] = React.useState(false);
-    const [selectedCard, setSelectedCard] = React.useState();
+    const [selectedCard, setSelectedCard] = React.useState({});
+    const [name, setName] = React.useState('');
+    const [description, setdescription] = React.useState('');
     
     function closeAllPopups() {
         openEditPopup(false);
         openAddPopup(false);
         openAvatarPopup(false);
-        setSelectedCard()
+        setSelectedCard({})
     }
 
     function handleEditAvatarClick() {
@@ -36,19 +38,27 @@ function App() {
         setSelectedCard(item)
     }
 
+    function setUserName (userName) {
+        setName(userName)
+    }
+
+    function setUserDescription(userDescription) {
+        setdescription(userDescription)
+    }
+
     return (
         <div className="page">
             <Header />
-            <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onSelectedCard={handleCardClick}/>
+            <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onSelectedCard={handleCardClick} setInfoName={setUserName} setInfoDescription={setUserDescription}/>
             <Footer />
             <PopupWithForm name="edit" title="Редактировать профиль" text="Сохранить" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
                 <div className="input-container">
-                    <input id="name-owner" name="edit-name-owner" type="text"
+                    <input id="name-owner" name="edit-name-owner" type="text" placeholder={name}
                         className="popup__input popup__input_name_owner" required minLength="2" maxLength="40" />
                     <span id="error-name-owner" className="error-message"></span>
                 </div>
                 <div className="input-container">
-                    <input id="about-owner" name="edit-about-owner" type="text"
+                    <input id="about-owner" name="edit-about-owner" type="text" placeholder={description}
                         className="popup__input popup__input_name_about-owner" required minLength="2" maxLength="200" />
                     <span id="error-about-owner" className="error-message"></span>
                 </div></PopupWithForm>
@@ -72,7 +82,7 @@ function App() {
                     <span id="error-photo-avatar" className="error-message"></span>
                 </div>
             </PopupWithForm>
-            { selectedCard && (<ImagePopup card={selectedCard} onClose={closeAllPopups}/>) }
+            { selectedCard._id && (<ImagePopup card={selectedCard} onClose={closeAllPopups}/>) }
             
 
         </div>
