@@ -13,7 +13,7 @@ export default function EditProfilePopup(props) {
     React.useEffect(() => {
         setName(currentUser.name);
         setDescription(currentUser.about);
-    }, [currentUser]);
+    }, [currentUser, props.isOpen]);
 
     function handleChangeName(e) {
         setName(e.target.value)
@@ -34,12 +34,12 @@ export default function EditProfilePopup(props) {
     return (
         <PopupWithForm name="edit" title="Редактировать профиль" text="Сохранить" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit}>
             <div className="input-container">
-                <input id="name-owner" name="edit-name-owner" type="text" placeholder={currentUser.name} value={name} onChange={handleChangeName}
+                <input id="name-owner" name="edit-name-owner" type="text" placeholder='Введите имя' value={name || ''} onChange={handleChangeName}
                     className="popup__input popup__input_name_owner" required minLength="2" maxLength="40" />
                 <span id="error-name-owner" className="error-message"></span>
             </div>
             <div className="input-container">
-                <input id="about-owner" name="edit-about-owner" type="text" placeholder={currentUser.about} value={description} onChange={handleChangeDescription}
+                <input id="about-owner" name="edit-about-owner" type="text" placeholder='Расскажите о себе' value={description || ''} onChange={handleChangeDescription}
                     className="popup__input popup__input_name_about-owner" required minLength="2" maxLength="200" />
                 <span id="error-about-owner" className="error-message"></span>
             </div>

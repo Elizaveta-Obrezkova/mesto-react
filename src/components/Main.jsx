@@ -23,7 +23,7 @@ function Main(props) {
             </section>
             <section className="elements page__elements">
                 {props.cards.reverse().map((item) =>
-                    <Card card={item} key={item._id} onCardClick={props.onSelectedCard} onCardLike={props.onCardLike} onCardDelete={props.onCardDelete} />
+                    (<Card card={item} key={item._id} onCardClick={props.onSelectedCard} onCardLike={props.onCardLike} onCardDelete={props.onCardDelete} />)
                 )}
             </section>
         </main>

@@ -94,11 +94,11 @@ function App() {
             .then((res) => {
                 setCurrentUser(res)
             })
+            .then(() => {
+                closeAllPopups();
+            })
             .catch((err) => {
                 console.log(err);
-            })
-            .finally(() => {
-                closeAllPopups();
             })
     }
 
@@ -107,11 +107,11 @@ function App() {
             .then((res) => {
                 setCurrentUser(res)
             })
+            .then(() => {
+                closeAllPopups();
+            })
             .catch((err) => {
                 console.log(err);
-            })
-            .finally(() => {
-                closeAllPopups();
             })
     }
 
@@ -120,11 +120,11 @@ function App() {
             .then((newCard) => {
                 setCards([newCard, ...cards]); 
             })
+            .then(() => {
+                closeAllPopups();
+            })
             .catch((err) => {
                 console.log(err);
-            })
-            .finally(() => {
-                closeAllPopups();
             })
     }
 
@@ -158,7 +158,7 @@ function App() {
                     onClose={closeAllPopups}
                     onUpdateAvatar={handleUpdateAvatar}
                 />
-                {selectedCard._id && (<ImagePopup card={selectedCard} onClose={closeAllPopups} />)}
+                <ImagePopup card={selectedCard} onClose={closeAllPopups} />
             </div>
         </CurrentUserContext.Provider>
 
