@@ -95,6 +95,6 @@ class Api{
 
 }
 
-const user = new Api('https://mesto.nomoreparties.co', '0c92a17d-ab7c-45c7-b476-e80d1afdd752');
+const api = new Api('https://mesto.nomoreparties.co', '0c92a17d-ab7c-45c7-b476-e80d1afdd752');
 
-export {user};
+export {api};
